@@ -1,5 +1,7 @@
 # go-test-color
 
+![Go](https://github.com/haunt98/go-test-color/workflows/Go/badge.svg?branch=main)
+
 Run `go test` with color.
 
 ## Install
