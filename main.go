@@ -8,12 +8,16 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-	"sync"
 
 	"github.com/fatih/color"
 )
 
 func main() {
+	code := runGoTest()
+	os.Exit(code)
+}
+
+func runGoTest() int {
 	args := []string{"test"}
 	args = append(args, os.Args[1:]...)
 
@@ -21,27 +25,16 @@ func main() {
 	cmd.Env = os.Environ()
 
 	reader, writer := io.Pipe()
-	defer func() {
-		if err := writer.Close(); err != nil {
-			log.Printf("failed to close writer: %s", err)
-		}
-
-		if err := reader.Close(); err != nil {
-			log.Printf("failed to close reader: %s", err)
-		}
-	}()
+	defer writer.Close()
 
 	cmd.Stdout = writer
 	cmd.Stderr = writer
 
-	var wg sync.WaitGroup
-	wg.Add(1)
-	defer wg.Wait()
-
 	go func() {
-		defer wg.Done()
+		defer reader.Close()
 
 		scanner := bufio.NewScanner(reader)
+
 		for scanner.Scan() {
 			line := scanner.Text()
 			trimmedLine := strings.TrimSpace(line)
@@ -68,8 +61,8 @@ func main() {
 	}()
 
 	if err := cmd.Run(); err != nil {
-		os.Exit(1)
+		return 1
 	}
 
-	os.Exit(0)
+	return 0
 }
