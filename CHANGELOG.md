@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.4.0 (2020-12-1)
+
+### Added
+
+- feat: split stdout and stderr reader, writer
+
+### Others
+
+- chore: build using gotip for github action
+
+- chore: generate CHANGELOG v0.3.0
+
 ## v0.3.0 (2020-11-12)
 
 ### Added
