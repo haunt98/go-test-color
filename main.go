@@ -24,16 +24,19 @@ func runGoTest() int {
 	cmd := exec.Command("go", args...)
 	cmd.Env = os.Environ()
 
-	reader, writer := io.Pipe()
-	defer writer.Close()
+	outReader, outWriter := io.Pipe()
+	defer outWriter.Close()
 
-	cmd.Stdout = writer
-	cmd.Stderr = writer
+	errReader, errWriter := io.Pipe()
+	defer errWriter.Close()
+
+	cmd.Stdout = outWriter
+	cmd.Stderr = errWriter
 
 	go func() {
-		defer reader.Close()
+		defer outReader.Close()
 
-		scanner := bufio.NewScanner(reader)
+		scanner := bufio.NewScanner(outReader)
 
 		for scanner.Scan() {
 			line := scanner.Text()
@@ -53,6 +56,21 @@ func runGoTest() int {
 			}
 
 			fmt.Println(line)
+		}
+
+		if err := scanner.Err(); err != nil {
+			log.Printf("scanner error: %s", err)
+		}
+	}()
+
+	go func() {
+		defer errReader.Close()
+
+		scanner := bufio.NewScanner(errReader)
+
+		for scanner.Scan() {
+			line := scanner.Text()
+			color.Red("%s\n", line)
 		}
 
 		if err := scanner.Err(); err != nil {
