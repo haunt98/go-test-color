@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v0.5.0 (2020-12-18)
+
+### Others
+
+- refactor: split color func from runGoTest
+
+- build: update go.mod
+
+- chore(readme): add thanks
+
+- chore: remove ext from LICENSE
+
+- chore: generate CHANGELOG v0.4.0
+
 ## v0.4.0 (2020-12-1)
 
 ### Added
