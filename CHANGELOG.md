@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.6.0 (2021-1-18)
+
+### Others
+
+- chore: update badges
+
+- chore: bump golangci-lint v1.34 in github action
+
+- chore(readme): add pkg.go.dev badge
+
+- chore(changelog): generate v0.5.0
+
 ## v0.5.0 (2020-12-18)
 
 ### Others
