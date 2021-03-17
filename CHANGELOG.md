@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v0.7.0 (2021-3-17)
+
+### Others
+
+- build: bump go 1.16 in go.mod
+
+- chore(license): bump year 2021
+
+- chore(readme): add go 1.16 guide install
+
+- chore: bump go 1.16 in github action
+
+- chore(changelog): generate v0.6.0
+
 ## v0.6.0 (2021-1-18)
 
 ### Others
