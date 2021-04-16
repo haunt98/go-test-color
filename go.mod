@@ -4,5 +4,5 @@ go 1.16
 
 require (
 	github.com/fatih/color v1.10.0
-	golang.org/x/sys v0.0.0-20201218084310-7d0127a74742 // indirect
+	golang.org/x/sys v0.0.0-20210415045647-66c3f260301c // indirect
 )
