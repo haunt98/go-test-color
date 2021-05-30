@@ -18,11 +18,15 @@ func main() {
 }
 
 func runGoTest() int {
+	// Run go test
+
 	args := []string{"test"}
 	args = append(args, os.Args[1:]...)
 
 	cmd := exec.Command("go", args...)
 	cmd.Env = os.Environ()
+
+	// Output pipe and error pipe
 
 	outReader, outWriter := io.Pipe()
 	defer outWriter.Close()
