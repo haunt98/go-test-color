@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.9.0 (2021-05-30)
+
+### Others
+
+- build: update go.mod (2021-05-30)
+
+- docs: add comment to explain (2021-05-30)
+
+- chore(changelog): generate v0.8.0 (2021-04-16)
+
 ## v0.8.0 (2021-04-16)
 
 ### Others
