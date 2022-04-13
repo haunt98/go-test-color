@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.9.1 (2022-04-13)
+
+### Others
+
+- chore: add github release (2022-04-13)
+
+- chore: bump license year (2022-04-13)
+
+- build: bump go 1.18 in go.mod (2022-04-13)
+
+- chore(changelog): generate v0.9.0 (2021-05-30)
+
 ## v0.9.0 (2021-05-30)
 
 ### Others
