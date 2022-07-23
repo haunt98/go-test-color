@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## v0.10.0 (2022-07-23)
+
+### Added
+
+- feat: add yellow for skip (2022-07-23)
+
+### Others
+
+- chore: add try-4-real in Makefile (2022-07-23)
+
+- refactor: replace cmd.Run with cmd.Start and cmd.Wait (2022-07-23)
+
+- refactor: move reader close fn inside main scope (2022-07-23)
+
+- chore: update github action (2022-07-23)
+
+- chore: add Makefile (2022-07-23)
+
+- chore: add dependabot (2022-07-23)
+
+- build: bump go.mod (2022-05-23)
+
+- chore(changelog): generate v0.9.1 (2022-04-13)
+
 ## v0.9.1 (2022-04-13)
 
 ### Others
