@@ -29,9 +29,11 @@ func runGoTest() int {
 	// Output pipe and error pipe
 
 	outReader, outWriter := io.Pipe()
+	defer outReader.Close()
 	defer outWriter.Close()
 
 	errReader, errWriter := io.Pipe()
+	defer errReader.Close()
 	defer errWriter.Close()
 
 	cmd.Stdout = outWriter
@@ -47,9 +49,7 @@ func runGoTest() int {
 	return 0
 }
 
-func colorOutputReader(reader io.ReadCloser) {
-	defer reader.Close()
-
+func colorOutputReader(reader io.Reader) {
 	scanner := bufio.NewScanner(reader)
 
 	for scanner.Scan() {
@@ -82,9 +82,7 @@ func colorOutputReader(reader io.ReadCloser) {
 	}
 }
 
-func colorErrorReader(reader io.ReadCloser) {
-	defer reader.Close()
-
+func colorErrorReader(reader io.Reader) {
 	scanner := bufio.NewScanner(reader)
 
 	for scanner.Scan() {
