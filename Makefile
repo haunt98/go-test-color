@@ -1,6 +1,6 @@
-.PHONY: all test-color lint
+.PHONY: all test-color lint try-4-real
 
-all: test-color lint
+all: test-color lint try-4-real
 
 test-color:
 	go install github.com/haunt98/go-test-color@latest
@@ -8,3 +8,6 @@ test-color:
 
 lint:
 	golangci-lint run ./...
+
+try-4-real:
+	go run .
