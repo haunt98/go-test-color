@@ -54,16 +54,21 @@ func colorOutputReader(reader io.ReadCloser) {
 
 	for scanner.Scan() {
 		line := scanner.Text()
-		trimmedLine := strings.TrimSpace(line)
+		line = strings.TrimSpace(line)
 
-		if strings.HasPrefix(trimmedLine, "--- PASS") ||
+		if strings.HasPrefix(line, "--- PASS") ||
 			strings.HasPrefix(line, "PASS") ||
 			strings.HasPrefix(line, "ok") {
 			color.Green("%s\n", line)
 			continue
 		}
 
-		if strings.HasPrefix(trimmedLine, "--- FAIL") ||
+		if strings.HasPrefix(line, "--- SKIP") {
+			color.Yellow("%s\n", line)
+			continue
+		}
+
+		if strings.HasPrefix(line, "--- FAIL") ||
 			strings.HasPrefix(line, "FAIL") {
 			color.Red("%s\n", line)
 			continue
