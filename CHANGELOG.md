@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## v0.11.0 (2022-08-13)
+
+### Fixed
+
+- fix: fix goroutine leak (2022-08-13)
+
+### Others
+
+- chore: update gitignore (2022-08-13)
+
+- chore: bump go 1.19 in github action (2022-08-13)
+
+- chore: goreleaser gen changelog for github (2022-08-13)
+
+- chore: add example (2022-08-13)
+
+- chore(changelog): generate v0.10.0 (2022-07-23)
+
 ## v0.10.0 (2022-07-23)
 
 ### Added
