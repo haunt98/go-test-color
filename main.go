@@ -12,6 +12,8 @@ import (
 	"github.com/fatih/color"
 )
 
+const cmdName = "go-test-color"
+
 func main() {
 	code := runGoTest()
 	os.Exit(code)
@@ -24,33 +26,33 @@ func runGoTest() int {
 	args = append(args, os.Args[1:]...)
 	cmd := exec.Command("go", args...)
 
-	// Output pipe
-	outReader, outWriter := io.Pipe()
-	defer outReader.Close()
-	defer outWriter.Close()
+	// Read stdout and stderr
+	outReader, err := cmd.StdoutPipe()
+	if err != nil {
+		log.Printf("%s failed to get stdout pipe: %s", cmdName, err)
+		return 1
+	}
 
-	// Error pipe
-	errReader, errWriter := io.Pipe()
-	defer errReader.Close()
-	defer errWriter.Close()
-
-	// Redirect cmd pipes to our pipes
-	cmd.Stdout = outWriter
-	cmd.Stderr = errWriter
+	errReader, err := cmd.StderrPipe()
+	if err != nil {
+		log.Printf("%s failed to get stderr pipe: %s", cmdName, err)
+		return 1
+	}
 
 	// See https://stackoverflow.com/questions/8875038/redirect-stdout-pipe-of-child-process-in-go
 	if err := cmd.Start(); err != nil {
-		log.Printf("Failed to start: %s", err)
+		log.Printf("%s failed to start: %s", cmdName, err)
 		return 1
 	}
-	defer func() {
-		if err := cmd.Wait(); err != nil {
-			log.Printf("Failed to wait: %s", err)
-		}
-	}()
 
-	go colorOutputReader(outReader)
-	go colorErrorReader(errReader)
+	// Add color to both stdout and stderr
+	colorOutputReader(outReader)
+	colorErrorReader(errReader)
+
+	if err := cmd.Wait(); err != nil {
+		log.Printf("%s failed to wait: %s", cmdName, err)
+		return 1
+	}
 
 	return 0
 }
