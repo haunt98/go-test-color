@@ -1,6 +1,9 @@
 # macOS
 .DS_Store
 
+# Windows
+*.exe
+
 # IntelliJ
 .idea/
 
@@ -9,4 +12,4 @@
 
 # Go
 coverage.out
-coverage.html
+vendor
