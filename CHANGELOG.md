@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.12.0 (2023-02-21)
+
+### Others
+
+- chore; bump go 1.20 (2023-02-21)
+
+- build(deps): bump github.com/fatih/color from 1.13.0 to 1.14.1 (2023-01-24)
+
+- chore: update github action (2022-08-16)
+
+- chore(changelog): generate v0.11.0 (2022-08-13)
+
 ## v0.11.0 (2022-08-13)
 
 ### Fixed
