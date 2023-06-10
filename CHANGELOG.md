@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.13.0 (2023-06-10)
+
+### Added
+
+- feat: update lint (2023-02-25)
+
+### Others
+
+- build(deps): bump goreleaser/goreleaser-action from 2 to 4 (2023-03-22)
+
+- build(deps): bump actions/setup-go from 3 to 4 (2023-03-22)
+
+- chore: update dependabot (2023-03-22)
+
+- build(deps): bump github.com/fatih/color from 1.14.1 to 1.15.0 (2023-03-14)
+
+- chore: update make (2023-02-26)
+
+- chore(changelog): generate v0.12.0 (2023-02-21)
+
 ## v0.12.0 (2023-02-21)
 
 ### Others
