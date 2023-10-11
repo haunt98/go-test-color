@@ -64,6 +64,10 @@ func colorOutputReader(reader io.Reader) {
 		line := scanner.Text()
 		line = strings.TrimSpace(line)
 
+		if strings.HasSuffix(line, "[no test files]") {
+			continue
+		}
+
 		if strings.HasPrefix(line, "--- PASS") ||
 			strings.HasPrefix(line, "PASS") ||
 			strings.HasPrefix(line, "ok") {
