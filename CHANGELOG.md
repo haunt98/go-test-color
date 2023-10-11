@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.14.0 (2023-10-11)
+
+### Added
+
+- feat: ignore [no test files] (2023-10-11)
+
+### Others
+
+- chore: add badges (2023-09-23)
+
+- build(deps): bump goreleaser/goreleaser-action from 4 to 5 (2023-09-12)
+
+- build(deps): bump actions/checkout from 3 to 4 (2023-09-05)
+
+- chore: use go stable (2023-06-30)
+
+- chore: sync golangci-lint (2023-06-29)
+
+- chore(changelog): generate v0.13.0 (2023-06-10)
+
 ## v0.13.0 (2023-06-10)
 
 ### Added
