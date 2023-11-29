@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.14.1 (2023-11-29)
+
+### Others
+
+- build(deps): bump github.com/fatih/color from 1.15.0 to 1.16.0 (2023-11-07)
+
+- chore(changelog): generate v0.14.0 (2023-10-11)
+
 ## v0.14.0 (2023-10-11)
 
 ### Added
