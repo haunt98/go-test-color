@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## v0.14.2 (2025-02-28)
+
+### Others
+
+- chore: deprecated check-shadowing in golangci.yml (2025-01-05)
+
+- chore: sync lint (2024-10-26)
+
+- chore: migrate to justfile (2024-08-22)
+
+- chore: remove goreleaser (2024-06-10)
+
+- chore: add badges (2024-06-08)
+
+- Merge branch 'main' of https://github.com/haunt98/go-test-color (2024-06-08)
+
+- chore: add gitleaks (2024-06-08)
+
+- chore: sync golangci-lint config (2024-05-08)
+
+- chore(changelog): generate v0.14.1 (2023-11-29)
+
+### Build
+
+- build(deps): bump github.com/fatih/color from 1.17.0 to 1.18.0 (#15) (2024-10-23)
+
+- build(deps): bump github.com/fatih/color from 1.16.0 to 1.17.0 (#13) (2024-05-14)
+
+- build(deps): bump golangci/golangci-lint-action from 5 to 6 (#12) (2024-05-08)
+
+- build(deps): bump golangci/golangci-lint-action from 4 to 5 (#11) (2024-04-26)
+
+- build(deps): bump golangci/golangci-lint-action from 3 to 4 (#10) (2024-02-10)
+
+- build(deps): bump actions/setup-go from 4 to 5 (2023-12-07)
+
 ## v0.14.1 (2023-11-29)
 
 ### Others
