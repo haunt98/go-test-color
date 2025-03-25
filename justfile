@@ -8,7 +8,8 @@ test-color:
     go-test-color -race -failfast .
 
 lint:
-    golangci-lint run .
+    golangci-lint run --fix ./...
+    modernize -fix -test ./...
 
 try-4-real:
     go run . -race ./example/...
