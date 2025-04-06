@@ -9,16 +9,8 @@ Run `go test` with color.
 
 ## Install
 
-With Go version `>= 1.16`:
-
 ```sh
 go install github.com/haunt98/go-test-color@latest
-```
-
-With Go version `< 1.16`:
-
-```sh
-GO111module=on go get -u github.com/haunt98/go-test-color
 ```
 
 ## Usage
