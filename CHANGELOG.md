@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## v0.15.0 (2025-10-22)
+
+### Added
+
+- feat: treat ld warning as yellow (2025-10-22)
+
+### Others
+
+- docs: rm go1.16 (2025-04-06)
+
+- Merge branch 'main' of https://github.com/haunt98/go-test-color (2025-03-25)
+
+- chore: migrate golangci-lint v2 (2025-03-25)
+
+- chore(changelog): generate v0.14.2 (2025-02-28)
+
+### Build
+
+- build(deps): bump actions/setup-go from 5 to 6 (#19) (2025-09-05)
+
+- build(deps): bump actions/checkout from 4 to 5 (#18) (2025-08-12)
+
+- build(deps): bump golangci/golangci-lint-action from 7 to 8 (#17) (2025-05-06)
+
+- build: bump go.mod 1.24 (2025-03-04)
+
 ## v0.14.2 (2025-02-28)
 
 ### Others
