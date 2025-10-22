@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"context"
 	"fmt"
 	"io"
 	"log"
@@ -24,7 +25,7 @@ func runGoTest() int {
 	// Pass all args
 	args := []string{"test"}
 	args = append(args, os.Args[1:]...)
-	cmd := exec.Command("go", args...)
+	cmd := exec.CommandContext(context.Background(), "go", args...)
 
 	// Read stdout and stderr
 	outReader, err := cmd.StdoutPipe()
@@ -99,6 +100,19 @@ func colorErrorReader(reader io.Reader) {
 
 	for scanner.Scan() {
 		line := scanner.Text()
+		line = strings.TrimSpace(line)
+
+		if strings.HasPrefix(line, "# ") {
+			fmt.Println(line)
+			continue
+		}
+
+		// https://github.com/golang/go/issues/61229
+		if strings.HasPrefix(line, "ld: warning: ") {
+			color.Yellow("%s\n", line)
+			continue
+		}
+
 		color.Red("%s\n", line)
 	}
 
