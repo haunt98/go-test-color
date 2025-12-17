@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v0.16.0 (2025-12-18)
+
+### Others
+
+- chore(changelog): generate v0.15.0 (2025-10-22)
+
+### Build
+
+- build: bump go.mod (2025-12-18)
+
+- build(deps): bump actions/checkout from 5 to 6 (#21) (2025-11-21)
+
+- build(deps): bump golangci/golangci-lint-action from 8 to 9 (#20) (2025-11-11)
+
 ## v0.15.0 (2025-10-22)
 
 ### Added
