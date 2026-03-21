@@ -23,7 +23,8 @@ func main() {
 // Run go test with args
 func runGoTest() int {
 	// Pass all args
-	args := []string{"test"}
+	args := make([]string, 0, len(os.Args))
+	args = append(args, "test")
 	args = append(args, os.Args[1:]...)
 	cmd := exec.CommandContext(context.Background(), "go", args...)
 
