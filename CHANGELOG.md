@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## v0.17.0 (2026-03-23)
+
+### Others
+
+- chore (2026-03-21)
+
+- chore: fix lint (2026-03-21)
+
+- lint (2026-03-10)
+
+- chore: ubuntu-latest -> ubuntu-slim (2025-12-20)
+
+- chore(changelog): generate v0.16.0 (2025-12-18)
+
+### Build
+
+- build(deps): bump github.com/fatih/color from 1.18.0 to 1.19.0 (#22) (2026-03-21)
+
 ## v0.16.0 (2025-12-18)
 
 ### Others
