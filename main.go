@@ -48,8 +48,13 @@ func runGoTest() int {
 	}
 
 	// Add color to both stdout and stderr
-	colorOutputReader(outReader)
-	colorErrorReader(errReader)
+	if err := colorOutputReader(outReader); err != nil {
+		log.Printf("%s failed to read stdout: %s", cmdName, err)
+	}
+
+	if err := colorErrorReader(errReader); err != nil {
+		log.Printf("%s failed to read stderr: %s", cmdName, err)
+	}
 
 	if err := cmd.Wait(); err != nil {
 		log.Printf("%s failed to wait: %s", cmdName, err)
@@ -59,11 +64,21 @@ func runGoTest() int {
 	return 0
 }
 
-func colorOutputReader(reader io.Reader) {
-	scanner := bufio.NewScanner(reader)
+func colorOutputReader(reader io.Reader) error {
+	bufReader := bufio.NewReader(reader)
 
-	for scanner.Scan() {
-		line := scanner.Text()
+	for {
+		line, err := bufReader.ReadString('\n')
+		if err != nil &&
+			err != io.EOF {
+			return fmt.Errorf("bufio: reader failed to read %w", err)
+		}
+
+		if line == "" &&
+			err == io.EOF {
+			return nil
+		}
+
 		line = strings.TrimSpace(line)
 
 		if strings.HasSuffix(line, "[no test files]") {
@@ -89,18 +104,28 @@ func colorOutputReader(reader io.Reader) {
 		}
 
 		fmt.Println(line)
-	}
 
-	if err := scanner.Err(); err != nil {
-		log.Printf("scanner error: %s", err)
+		if err == io.EOF {
+			return nil
+		}
 	}
 }
 
-func colorErrorReader(reader io.Reader) {
-	scanner := bufio.NewScanner(reader)
+func colorErrorReader(reader io.Reader) error {
+	bufReader := bufio.NewReader(reader)
 
-	for scanner.Scan() {
-		line := scanner.Text()
+	for {
+		line, err := bufReader.ReadString('\n')
+		if err != nil &&
+			err != io.EOF {
+			return fmt.Errorf("bufio: reader failed to read %w", err)
+		}
+
+		if line == "" &&
+			err == io.EOF {
+			return nil
+		}
+
 		line = strings.TrimSpace(line)
 
 		if strings.HasPrefix(line, "# ") {
@@ -115,9 +140,9 @@ func colorErrorReader(reader io.Reader) {
 		}
 
 		color.Red("%s\n", line)
-	}
 
-	if err := scanner.Err(); err != nil {
-		log.Printf("scanner error: %s", err)
+		if err == io.EOF {
+			return nil
+		}
 	}
 }
