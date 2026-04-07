@@ -57,7 +57,7 @@ func runGoTest() int {
 	}
 
 	if err := cmd.Wait(); err != nil {
-		log.Printf("%s failed to wait: %s", cmdName, err)
+		log.Printf("%s failed: %s", cmdName, err)
 		return 1
 	}
 
