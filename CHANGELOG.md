@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## v0.18.0 (2026-04-07)
+
+### Added
+
+- feat: use bufio Reader instead of Scanner to workaround Scanner limit (2026-04-07)
+
+### Others
+
+- chore: better justfile (2026-04-07)
+
+- chore: fix typo (2026-04-07)
+
+- chore: better log (2026-04-07)
+
+- chore(changelog): generate v0.17.0 (2026-03-23)
+
 ## v0.17.0 (2026-03-23)
 
 ### Others
