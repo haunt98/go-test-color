@@ -1,21 +1,27 @@
-all: tidy test-color lint
+all: tidy format test-color lint build clean
 
 tidy:
     go mod tidy
 
 test-color:
-    go install github.com/haunt98/go-test-color@latest
+    # go install github.com/haunt98/go-test-color@latest
     go-test-color -race -failfast .
 
 lint:
     golangci-lint run --fix ./...
     modernize -fix -test ./...
 
-try-4-real:
-    go run . -race ./example/...
+format:
+    # go install github.com/haunt98/gofimports/cmd/gofimports@latest
+    # go install mvdan.cc/gofumpt@latest
+    gofimports -w --company github.com/make-go-great,github.com/haunt98 .
+    gofumpt -w -extra .
 
 build:
     go build -o go-test-color .
 
 clean:
     rm -f go-test-color
+
+try-4-real:
+    go run . -v -race ./example/...
