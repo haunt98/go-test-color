@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.19.0 (2026-08-20)
+
+### Fixed
+
+- fix: possible deadlock when reading stdout and stderr concurrently (2026-08-20)
+
+### Others
+
+- bump actions/setup-go from 6 to 7 (#25) (2026-07-17)
+
+- chore: update lint (2026-05-10)
+
+- chore(changelog): generate v0.18.0 (2026-04-07)
+
+### Build
+
+- build(deps): bump actions/checkout from 6 to 7 (#24) (2026-06-19)
+
+- build(deps): bump gitleaks/gitleaks-action from 2 to 3 (#23) (2026-06-03)
+
 ## v0.18.0 (2026-04-07)
 
 ### Added
