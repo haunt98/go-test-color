@@ -2,7 +2,10 @@ module github.com/haunt98/go-test-color
 
 go 1.25.0
 
-require github.com/fatih/color v1.19.0
+require (
+	github.com/fatih/color v1.19.0
+	golang.org/x/sync v0.22.0
+)
 
 require (
 	github.com/mattn/go-colorable v0.1.14 // indirect
